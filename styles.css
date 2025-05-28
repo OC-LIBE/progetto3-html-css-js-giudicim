@@ -5,14 +5,14 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f5f7fa; /* chiaro */
+    background-color: #f5f7fa;
 }
 
 /* =======================
    Header
 ========================== */
 header {
-    background-color: #1e3a5f; /* blu scuro */
+    background-color: #1e3a5f;
     color: #ffffff;
     text-align: center;
     padding: 30px 20px;
@@ -84,7 +84,7 @@ main {
 }
 
 main article {
-    height: 350px; /* aumentata da 250px a 350px */
+    height: 350px;
     overflow: hidden;
     background-color: #ffffff;
     display: flex;
@@ -93,13 +93,11 @@ main article {
     margin-bottom: 1rem;
 }
 
-
-/* Buttons inside main (e.g., Adopt Me) */
 main button {
     text-align: center;
     margin: 20px 0;
     color: #856404;
-    border: 1px solid #ffc107; /* oro */
+    border: 1px solid #ffc107;
     border-radius: 30px;
     padding: 10px 20px;
     background-color: transparent;
@@ -125,7 +123,7 @@ main button:hover {
     flex-grow: 1;
     overflow-y: auto;
     margin-bottom: 1rem;
-    max-height: 160px; /* aumentato lo spazio visibile */
+    max-height: 160px;
 }
 
 
@@ -143,4 +141,14 @@ main button:hover {
 
 main article:hover img {
     transform: rotate(1deg) scale(1.4);
+}
+.bottone {
+  display: block;
+  padding: 1em;
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 100%;
 }
