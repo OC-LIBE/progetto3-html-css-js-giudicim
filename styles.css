@@ -1,134 +1,104 @@
-/* =======================
-   Base Reset & Typography
-========================== */
 html, body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f5f7fa;
 }
 
-/* =======================
-   Header
-========================== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E6F2F2; /* chiaro verde-azzurro */
+}
+
 header {
-    background-color: #1e3a5f;
-    color: #ffffff;
+    background-color: #2C7A7B; /* verde acqua scuro */
+    color: #FFFFFF;
     text-align: center;
-    padding: 30px 20px;
     position: relative;
-    font-family: "New Century Schoolbook", "TeX Gyre Schola", serif;
+    padding: 20px 20px;
 }
 
 header h1 {
     margin: 0;
     font-weight: normal;
-    font-size: 3rem;
+    font-size: 6rem;
 }
 
 header h2 {
     margin: 0;
     font-weight: normal;
-    font-size: 1rem;
+    font-size: 1.7rem;
 }
 
-header::before {
+header:before {
     content: "";
-    height: 20px;
+    height: 10px;
+    background: linear-gradient(to left, #2C7A7B, #81E6D9); /* da verde scuro a verde chiaro */
     position: absolute;
+    top: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(#007bff, #1e3a5f);
-    top: 0;
 }
 
 header::after {
     content: "";
-    height: 20px;
+    height: 10px;
+    background: linear-gradient(to right, #2C7A7B, #81E6D9);
     position: absolute;
+    bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(#1e3a5f, #007bff);
-    bottom: 0;
 }
 
-
-/* =======================
-   Navigation
-========================== */
 nav {
     text-align: center;
     margin: 20px 0;
 }
 
 nav button {
-    color: #1e3a5f;
-    border: 1px solid #007bff;
-    border-radius: 30px;
+    color: #2C7A7B;
+    border-color: #2C7A7B;
+    border-radius: 5px;
     padding: 10px 20px;
-    background-color: transparent;
 }
 
 nav button:hover {
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: #81E6D9;
+    color: #FFFFFF;
     cursor: pointer;
 }
 
-/* =======================
-   Main Content
-========================== */
 main {
     max-width: 700px;
     margin: 0 auto;
 }
 
 main article {
-    height: 350px;
-    overflow: hidden;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     display: flex;
     flex-direction: row-reverse;
     border-radius: 20px;
+    overflow: hidden;
     margin-bottom: 1rem;
 }
 
-main button {
-    text-align: center;
-    margin: 20px 0;
-    color: #856404;
-    border: 1px solid #ffc107;
-    border-radius: 30px;
-    padding: 10px 20px;
-    background-color: transparent;
-}
-
-main button:hover {
-    background: linear-gradient(to right, #ffc107, #ff9800); /* oro sfumato */
-    color: #fff;
-}
-
-/* =======================
-   Card Components
-========================== */
 .animal-card-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     padding: 1rem 2rem;
-    height: 100%;
 }
 
-.animal-card-text p {
-    flex-grow: 1;
-    overflow-y: auto;
-    margin-bottom: 1rem;
-    max-height: 160px;
+.animal-card-text h1 {
+    font-weight: normal;
+    padding: 0;
+    margin: .8rem 0;
+    line-height: 1.5;
 }
 
+.animal-card-text small {
+    color: #6B7280; /* grigio neutro */
+    font-size: 0.8rem;
+}
 
 .animal-card-photo {
-    min-width: 300px;
+    min-width: 200px;
+    flex-basis: 200px;
     overflow: hidden;
 }
 
@@ -140,15 +110,21 @@ main button:hover {
 }
 
 main article:hover img {
-    transform: rotate(1deg) scale(1.4);
+    transform: rotate(10deg) scale(1.4);
 }
-.bottone {
-  display: block;
-  padding: 1em;
-  background-color: #3498db;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  width: 100%;
+
+.adopt-button {
+    background-color: #2C7A7B;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.adopt-button:hover {
+    background: linear-gradient(to left, #2C7A7B, #81E6D9);
+    color: #FFFFFF;
 }
