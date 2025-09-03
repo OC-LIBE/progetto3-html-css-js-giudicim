@@ -28,8 +28,8 @@ async function displayPets(){
     pets.forEach( pet =>{
         const clone = template.content.cloneNode(true)
 
-        // qui modifichiamo il template
-        // Nome animale
+        //modifichiamo il template
+
         const name = clone.querySelector('.animal-name')
         name.textContent=pet.name;
 
@@ -51,9 +51,7 @@ async function displayPets(){
         // aggiorniamo la foto
         const image = clone.querySelector('.animal-card-photo img')
         image.src=pet.photo
-        // console.log(pet.photo)
-
-        //aggiungiamo l'articolo alla pagaina
+      
         wrapper.appendChild(clone)
 
         }
@@ -62,26 +60,41 @@ async function displayPets(){
 }
 
 
-displayPets()
+
+displayPets();
+
 function displayFiltersAnimal(e) {
     let petsArticles = document.querySelectorAll("article")
 
-    for (let index=0; index <petsArticles.length; index++) {
-        let petsArticles = petsArticles[index]
-        const small= petsArticles.querySelectorAll("animal-card-text small span")
-
-        if (e.target.filterAnimal == "All") {
-            petsArticles,style.display = "flex"
-        }
-        else if (e.target.filterAnimal == "All") {
-            petsArticles,style.display = "flex"
-        }
-        else if (e.target.filterAnimal == "All") {
-            petsArticles,style.display = "flex"
-        }
-        
-    console.log(e.target.dataset.filter)
+    petsArticles.forEach(petArticle => {
+    console.log(petArticle)
+    if (e.target.dataset.filterAnimal == "All") {
+       petArticle.style.display = "flex"
 }
+
+    else if (small[1]. textContent != e.target.dataset.filterAnimal ) {
+            petArticle.style.display = "none"
+}
+    else  {petArticle.style.display = "flex"
+}
+})
+
+
+//     for (let index=0; index <petsArticles.length; index++) {
+//         let petArticle = petArticle[index];        
+//         const small= petArticle.querySelectorAll("animal-card-text small span")
+
+//         if (e.target.dataset.filterAnimal == "All") {
+//             petArticle.style.display = "flex"
+//         }
+//         else if (small[1]. textContent != e.target.dataset.filterAnimal ) {
+//             petArticle.style.display = "none"
+//         }
+//         else  {
+//             petArticle.style.display = "flex"
+//         }
+
+// }
 };
 const filterButtons = document.querySelectorAll("nav button");
 
