@@ -9,7 +9,7 @@
     <script src="main.js" defer></script>
 </head>
 
-<body>
+<body> <!-- tutto il contenuto visibile della pagina -->
     <header>
         <h1>Welcome</h1>
         <h2>Our friends need a home!</h2>
@@ -24,25 +24,27 @@
 
     <main>
 
+ <!-- Nel template -->
+  
         <template id="animal-card-template">
-            <article>
-                <section class="animal-card-text">
-                    <h1 class="animal-name"> Nome animale</h1>
-                    <small>
-                        <span class="animal-age">2 years old </span> - <span class="species">cat</span>
-                    </small>
-                    <p class="animal-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo adipisci est, necessitatibus
-                        doloremque dolorum voluptas eum earum maxime, dignissimos beatae deserunt facilis, aspernatur
-                        fuga accusantium! Facere, excepturi asperiores? Impedit, consectetur.
-                    </p>
-                    <a href="http://www.google.com" target="_blank" class="adopt-button">Adopt <span class="btn-name"></span></a>
-                </section>
+            <article class="animal-card">
                 <section class="animal-card-photo">
                     <img src="static/dog2.webp">
                 </section>
+                <section class="animal-card-text">
+                    <h1 class="animal-name"> Nome animale</h1>
+                    <small>
+                        <span class="animal-age"> 2 years old </span> 
+                        - <span class="species"> Cat </span>
+                    </small>
+                    <p class="animal-description">
+                        Lorem ipsum dolor sit amet...
+                    </p>
+                    <a href="http://www.google.com" target="_blank" class="adopt-button">Adopt <span class="btn-name"></span></a>
+                </section>
             </article>
         </template>
+
 
 
     </main>

@@ -1,105 +1,61 @@
-const website = "https://frapollif.github.io/pet-adoption-data"
+const website = "https://frapollif.github.io/pet-adoption-data";
 
 async function getPetsData() {
-    const data = await fetch(`${website}/pets.json`)
-    const petsdata = await data.json()
-    return petsdata
+    const data = await fetch(`${website}/pets.json`);
+    const petsdata = await data.json();
+    return petsdata;
+}
+
+function ageText(age) {
+    if (age > 1) return age + ' years old';
+    if (age == 1) return age + ' year old';
+    return 'less than a year old';
 }
 
 
-async function displayPets(){
-
+async function displayPets() {
     const pets = await getPetsData();
-    const template = document.querySelector('#animal-card-template')
+    const template = document.querySelector('#animal-card-template');
+    const main = document.querySelector('main');
+    // Rimuovi tutte le card precedenti
+    main.querySelectorAll('article').forEach(a => a.remove());
 
-    const wrapper = document.querySelector('main')
-
-      function ageText(age) {
-        if (age > 1) {
-            return age + ' years old'
-        } else if (age == 1) {
-            return age + ' year old'
-        } else {
-            return 'less than a year old'
-        }
-    }
-
-
-    pets.forEach( pet =>{
-        const clone = template.content.cloneNode(true)
-
-        //modifichiamo il template
-
-        const name = clone.querySelector('.animal-name')
-        name.textContent=pet.name;
-
-        const ageclass = clone.querySelector('.animal-age')
+    pets.forEach(pet => {
+        const clone = template.content.cloneNode(true);
+        clone.querySelector('img').src = pet.photo;
+        clone.querySelector('.animal-name').innerText = pet.name;
         const d = new Date();
         let age = d.getFullYear() - pet.birthYear;
-        ageclass.innerText = ageText(age)
+        clone.querySelector('.animal-age').innerText = ageText(age);
+        clone.querySelector('.species').innerText = pet.species.charAt(0).toUpperCase() + pet.species.slice(1);
+        clone.querySelector('.animal-description').innerText = pet.description;
+        clone.querySelector('.btn-name').innerText = pet.name;
+        clone.querySelector('.adopt-button').href = `${website}/pets/${pet.id}/`;
+        main.appendChild(clone);
+    });
+}
 
-        const species = clone.querySelector('.species');
-        species.textContent=pet.species.charAt(0).toUpperCase() + pet.species.slice(1);
+// Funzione filtro
+function displayFilteredPets(e) {
+    const filter = e.target.dataset.filterAnimal;
+    // (opzionale) gestisci classe attiva
+    document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+    e.target.classList.add('active');
 
-        const description = clone.querySelector('.animal-description')
-        description.textContent = pet.description;
-        clone.querySelector('.btn-name').textContent = pet.name
-
-        const adoptBtn = clone.querySelector('.adopt-button')
-        // adoptBtn.action = `${website}/pets/${pet.id}/`
-        adoptBtn.href = `${website}/pets/${pet.id}/`
-        // aggiorniamo la foto
-        const image = clone.querySelector('.animal-card-photo img')
-        image.src=pet.photo
-      
-        wrapper.appendChild(clone)
-
+    document.querySelectorAll('article').forEach(card => {
+        const species = card.querySelector('.species').innerText.trim().toLowerCase();
+        if (filter === "All" || species === filter.toLowerCase()) {
+            card.style.display = "flex";
+        } else {
+            card.style.display = "none";
         }
-    )
-
+    });
 }
 
-
-
-displayPets();
-
-function displayFiltersAnimal(e) {
-    let petsArticles = document.querySelectorAll("article")
-
-    petsArticles.forEach(petArticle => {
-    console.log(petArticle)
-    if (e.target.dataset.filterAnimal == "All") {
-       petArticle.style.display = "flex"
-}
-
-    else if (small[1]. textContent != e.target.dataset.filterAnimal ) {
-            petArticle.style.display = "none"
-}
-    else  {petArticle.style.display = "flex"
-}
-})
-
-
-//     for (let index=0; index <petsArticles.length; index++) {
-//         let petArticle = petArticle[index];        
-//         const small= petArticle.querySelectorAll("animal-card-text small span")
-
-//         if (e.target.dataset.filterAnimal == "All") {
-//             petArticle.style.display = "flex"
-//         }
-//         else if (small[1]. textContent != e.target.dataset.filterAnimal ) {
-//             petArticle.style.display = "none"
-//         }
-//         else  {
-//             petArticle.style.display = "flex"
-//         }
-
-// }
-};
-const filterButtons = document.querySelectorAll("nav button");
-
-filterButtons.forEach(button=> {
-    button.addEventListener('click', (e) => {
-        displayFiltersAnimal(e);
-    })
+// Avvio
+displayPets().then(() => {
+    // Event listener dopo che le card sono state create
+    document.querySelectorAll('nav button').forEach(button => {
+        button.addEventListener('click', displayFilteredPets);
+    });
 });

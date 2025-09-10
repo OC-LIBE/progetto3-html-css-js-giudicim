@@ -65,6 +65,11 @@ nav button:hover {
     color: #FFFFFF;
     cursor: pointer;
 }
+nav button:active {
+    background-color: #205959; /* verde acqua ancora più scuro */
+    color: #FFFFFF;
+
+}
 
 main {
     max-width: 700px;
@@ -74,7 +79,7 @@ main {
 main article {
     background-color: #FFFFFF;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row; /* FOTO A SINISTRA, TESTO A DESTRA */
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 1rem;
@@ -127,4 +132,26 @@ main article:hover img {
 .adopt-button:hover {
     background: linear-gradient(to left, #2C7A7B, #81E6D9);
     color: #FFFFFF;
+}
+@media screen and (max-width: 600px) {
+    .animal-card {
+        flex-direction: column; /* Testo sotto l'immagine */
+    }
+    .animal-card-photo {
+        min-width: 100%;
+        min-height: 100%;
+        flex-basis: 100%;
+    }
+    .animal-card-text {
+        padding: 20px;
+    }
+    .animal-card-text h3 {
+        font-size: 1.2rem;
+    }
+    .header h1 {
+        font-size: 2rem;
+    }
+    .header h2 {
+        font-size: 1rem;
+    }
 }
