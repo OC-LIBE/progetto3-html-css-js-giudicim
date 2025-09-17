@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Animali</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="main.js" defer></script>
 </head>
-<body>
+
+<body> <!-- tutto il contenuto visibile della pagina -->
+    <header>
+        <h1>Welcome</h1>
+        <h2>Our friends need a home!</h2>
+    </header>
+
+    <nav>
+        <button data-filter-animal="All">Show all</button>
+        <button data-filter-animal="Dog">Only Dogs</button>
+        <button data-filter-animal="Cat">Only Cats</button>
+        <button data-filter-animal="Rabbit">Only Rabbits</button>
+    </nav>
+
+    <main>
+
+ <!-- Nel template -->
+  
+        <template id="animal-card-template">
+            <article class="animal-card">
+                <section class="animal-card-photo">
+                    <img src="static/dog2.webp">
+                </section>
+                <section class="animal-card-text">
+                    <h1 class="animal-name"> Nome animale</h1>
+                    <small>
+                        <span class="animal-age"> 2 years old </span> 
+                        - <span class="species"> Cat </span>
+                    </small>
+                    <p class="animal-description">
+                        Lorem ipsum dolor sit amet...
+                    </p>
+                    <a href="http://www.google.com" target="_blank" class="adopt-button">Adopt <span class="btn-name"></span></a>
+                </section>
+            </article>
+        </template>
+
+
+
+    </main>
+
 </body>
+
 </html>
